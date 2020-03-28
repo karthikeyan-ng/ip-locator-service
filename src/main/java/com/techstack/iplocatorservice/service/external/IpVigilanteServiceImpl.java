@@ -2,6 +2,7 @@ package com.techstack.iplocatorservice.service.external;
 
 import com.techstack.iplocatorservice.service.external.api.Response;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -13,6 +14,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class IpVigilanteServiceImpl implements IpVigilanteService {
@@ -40,14 +42,12 @@ public class IpVigilanteServiceImpl implements IpVigilanteService {
 
                 response = responseEntity.getBody();
             } catch (RuntimeException e) {
-                System.out.println("Error while processing " + ipAddress + "   " + e.getMessage());
+                //Developer comments: Sometimes facing error response for the given request.
+                log.error("Error while processing {}  - {}", ipAddress, e.getMessage());
                 continue;
             }
-
-            System.out.println(response);
             responses.add(response);
         }
-
         return responses;
     }
 }
