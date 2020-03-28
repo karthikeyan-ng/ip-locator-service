@@ -15,7 +15,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * This class evaluates incoming REST RequestParam for {@code ip} and determine that given ip collection size is
  * in valid range (1-5).
  *
- * @author Karthikeyan N
+ * @author Karthikeyan
  */
 @Target({METHOD, FIELD, PARAMETER})
 @Retention(RUNTIME)

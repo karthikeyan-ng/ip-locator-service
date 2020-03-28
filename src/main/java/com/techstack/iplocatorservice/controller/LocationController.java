@@ -13,6 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * This is a Rest Controller for Locations related.
+ *
+ * @author Karthikeyan
+ */
 @RequiredArgsConstructor
 @Validated
 @RestController
@@ -20,6 +25,13 @@ public class LocationController {
 
     private final LocationService locationService;
 
+    /**
+     * This method is responsible to validate the given input and call the respective service to
+     * prepare the response.
+     *
+     * @param ipAddresses
+     * @return
+     */
     @GetMapping("/northcountries")
     public ResponseEntity<Map<String, List<String>>> getCountries(@RequestParam(name = "ip")
                                                                   @IpAddressSizeCheck @IpAddressFormatCheck List<String> ipAddresses) {

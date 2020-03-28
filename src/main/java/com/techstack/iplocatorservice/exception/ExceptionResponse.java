@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
  * This ExceptionResponse prepares whenever system behaves wrongly and the
  * same will be send back to the caller.
  *
- * @author Karthikeyan N
+ * @author Karthikeyan
  */
 @AllArgsConstructor
 @Getter

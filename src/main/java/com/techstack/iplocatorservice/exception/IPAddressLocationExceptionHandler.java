@@ -16,12 +16,18 @@ import java.util.stream.Collectors;
  * Global exception handler prepares error response based on the various
  * exception handler class.
  *
- * @author Karthikeyan N
+ * @author Karthikeyan
  *
  */
 @ControllerAdvice
 public class IPAddressLocationExceptionHandler {
 
+    /**
+     * This method execute when the user given input is not as per specification.
+     *
+     * @param ex
+     * @return ResponseEntity which contains List of ExceptionResponse
+     */
     @ExceptionHandler(ConstraintViolationException.class)
     public ResponseEntity<List<ExceptionResponse>> handleConstraint(ConstraintViolationException ex) {
         Set<ConstraintViolation<?>> constraintViolations = ex.getConstraintViolations();
