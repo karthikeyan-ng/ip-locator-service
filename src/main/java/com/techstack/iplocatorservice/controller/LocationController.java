@@ -1,5 +1,6 @@
 package com.techstack.iplocatorservice.controller;
 
+import com.techstack.iplocatorservice.controller.validator.IpAddressFormatCheck;
 import com.techstack.iplocatorservice.controller.validator.IpAddressSizeCheck;
 import com.techstack.iplocatorservice.service.LocationService;
 import lombok.RequiredArgsConstructor;
@@ -21,7 +22,7 @@ public class LocationController {
 
     @GetMapping("/northcountries")
     public ResponseEntity<Map<String, List<String>>> getCountries(@RequestParam(name = "ip")
-                                                                  @IpAddressSizeCheck List<String> ipAddresses) {
+                                                                  @IpAddressSizeCheck @IpAddressFormatCheck List<String> ipAddresses) {
 
         Map<String, List<String>> country = this.locationService.getCountries(ipAddresses);
 

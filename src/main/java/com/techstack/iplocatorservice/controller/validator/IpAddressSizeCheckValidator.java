@@ -15,6 +15,6 @@ public class IpAddressSizeCheckValidator implements ConstraintValidator<IpAddres
     }
 
     public boolean isValid(List<String> inputIpAddresses, ConstraintValidatorContext context) {
-        return this.min >= inputIpAddresses.size() && this.max <= inputIpAddresses.size();
+        return inputIpAddresses.size() >= this.min && inputIpAddresses.size() <= this.max;
     }
 }
