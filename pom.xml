@@ -29,12 +29,13 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<!-- Lombok is a annotation processor by using various annotations to shorten our classes -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/commons-validator/commons-validator -->
+		<!-- Used this Apache Validator to check IP address format validation -->
 		<dependency>
 			<groupId>commons-validator</groupId>
 			<artifactId>commons-validator</artifactId>
