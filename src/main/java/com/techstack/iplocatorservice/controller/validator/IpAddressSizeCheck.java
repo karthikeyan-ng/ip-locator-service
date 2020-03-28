@@ -20,8 +20,8 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Target({METHOD, FIELD, PARAMETER})
 @Retention(RUNTIME)
 @Documented
-@Constraint(validatedBy = InputIpAddressSizeCheckValidator.class)
-public @interface InputIpAddressSizeCheck {
+@Constraint(validatedBy = IpAddressSizeCheckValidator.class)
+public @interface IpAddressSizeCheck {
 
     String message() default "Accepted input is minimum 1 and maximum 5 IP addresses at a time";
 

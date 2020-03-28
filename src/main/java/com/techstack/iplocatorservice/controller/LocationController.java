@@ -1,6 +1,6 @@
 package com.techstack.iplocatorservice.controller;
 
-import com.techstack.iplocatorservice.controller.validator.InputIpAddressSizeCheck;
+import com.techstack.iplocatorservice.controller.validator.IpAddressSizeCheck;
 import com.techstack.iplocatorservice.service.LocationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +21,7 @@ public class LocationController {
 
     @GetMapping("/northcountries")
     public ResponseEntity<Map<String, List<String>>> getCountries(@RequestParam(name = "ip")
-                                                                  @InputIpAddressSizeCheck List<String> ipAddresses) {
+                                                                  @IpAddressSizeCheck List<String> ipAddresses) {
 
         Map<String, List<String>> country = this.locationService.getCountries(ipAddresses);
 
