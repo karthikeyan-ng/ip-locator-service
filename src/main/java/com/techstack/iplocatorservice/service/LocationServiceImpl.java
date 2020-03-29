@@ -24,13 +24,13 @@ public class LocationServiceImpl implements LocationService {
         return filteredCountries;
     }
 
-    public List<Response> processIpAddresses(final List<String> ipAddresses) {
+    private List<Response> processIpAddresses(final List<String> ipAddresses) {
 
         List<Response> responses = ipVigilanteService.getIpAddressDetails(ipAddresses);
         return responses;
     }
 
-    public Map<String, List<String>> validateAndGetCountries(final List<Response> responses) {
+    private Map<String, List<String>> validateAndGetCountries(final List<Response> responses) {
 
         List<String> countries =
                 responses.stream()
