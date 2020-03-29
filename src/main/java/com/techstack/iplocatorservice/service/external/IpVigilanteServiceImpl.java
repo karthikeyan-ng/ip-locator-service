@@ -43,6 +43,8 @@ public class IpVigilanteServiceImpl implements IpVigilanteService {
                 response = responseEntity.getBody();
             } catch (RuntimeException e) {
                 //Developer comments: Sometimes facing error response for the given request.
+                //Even though passing the correct request. Hence, if any RuntimeException go to
+                //next IP address for processing.
                 log.error("Error while processing {}  - {}", ipAddress, e.getMessage());
                 continue;
             }
