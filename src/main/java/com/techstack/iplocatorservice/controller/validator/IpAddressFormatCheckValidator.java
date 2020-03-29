@@ -31,15 +31,15 @@ public class IpAddressFormatCheckValidator implements ConstraintValidator<IpAddr
     /**
      * Perform IPv4 format check validation and prepares error messages
      *
-     * @param strings
+     * @param ipAddresses
      * @param constraintValidatorContext
      * @return
      */
     @Override
-    public boolean isValid(List<String> strings, ConstraintValidatorContext constraintValidatorContext) {
+    public boolean isValid(List<String> ipAddresses, ConstraintValidatorContext constraintValidatorContext) {
         InetAddressValidator validator = InetAddressValidator.getInstance();
 
-        String invalidIpAddresses = strings.stream()
+        String invalidIpAddresses = ipAddresses.stream()
                 .filter(Predicate.not(validator::isValidInet4Address))
                 .collect(Collectors.joining(","));
 
