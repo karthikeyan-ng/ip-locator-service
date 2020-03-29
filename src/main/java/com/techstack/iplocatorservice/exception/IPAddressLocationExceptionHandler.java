@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Function;
@@ -40,5 +41,18 @@ public class IPAddressLocationExceptionHandler {
                 .collect(Collectors.toList());
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responses);
+    }
+
+    /**
+     * This method execute when the system behaves wrongly.
+     *
+     * @param ex
+     * @return ResponseEntity which contains List of ExceptionResponse
+     */
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<List<ExceptionResponse>> handleConstraint(RuntimeException ex) {
+        ExceptionResponse response = ExceptionResponse.of(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        List<ExceptionResponse> responses = Arrays.asList(response);
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(responses);
     }
 }
